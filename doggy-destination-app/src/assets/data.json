@@ -1,0 +1,45 @@
+{
+
+    "Willmore Dog Park": {
+        "Description": "Large area with a beautiful dog park, ponds, picnic spots, and play areas.",
+        "Address": "7200 Hampton Ave, St. Louis, MO 63109",
+        "Website": "https://www.stlouis-mo.gov/government/departments/parks/parks/browse-parks/view-park.cfm?parkID=93&parkName=Willmore",
+        "Activity": "Outdoor"
+    },
+
+    "Central Park Maplewood": {
+        "Description": "This is a membership only dog park!  Memberships are annual and must be renewed each year.",
+        "Address": "7461 Elm Ave, Maplewood, MO 63143",
+        "Website": "https://www.maplewoodmo.gov/government/departments/dog_park/index.php",
+        "Activity": "Outdoor"
+    },
+
+    "SLU Dog Park & Sculpture Garden": {
+        "Description": "A beautiful park with great sculptures and lots of space for your pup to run and play!",
+        "Address": "1 N. Grand Blvd, St. Louis, MO 63103",
+        "Website": "No website available",
+        "Activity": "Outdoor"
+    },
+
+    "Bar K St. Louis": {
+        "Description": "A pup friendly bar that has food, drinks, and hosts local events for you and your pup!",
+        "Address": "4565 McRee Ave, St. Louis, MO 63110",
+        "Website": "https://barkdogbar.com/locations/st-louis-mo/",
+        "Activity": "Social"
+    },
+
+    "Zoomies Pet Cafe + Boutique": {
+        "Description": "Good food, good coffee, fun pup treats and trinkets in the boutique, and a fun outdoor area for the pups to play while you relax!",
+        "Address": "5838 Macklind Ave, St. Louis, MO 63109",
+        "Website": "https://www.zoomiespetcafe.com/eat-drink-play",
+        "Activity": "Social"
+    },
+
+    "Rockwell Beer Garden": {
+        "Description": "Pizza, pups, and pints!  All located in wonderful Francis Park!",
+        "Address": "5300 Donovan Ave, St. Louis, MO, 63109",
+        "Website": "https://www.rockwellbeer.com/francis-park",
+        "Activity": "Social"
+    }
+
+}
