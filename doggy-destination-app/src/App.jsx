@@ -10,18 +10,20 @@ import InfoPage from './components/InfoPage'
 function App() {
   
   return (
-    <>
-      <Header />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/searchForm" element={<SearchForm />} />
-          <Route path="/pupPlaces" element={<DestinationList />} /> 
-          <Route path="/idealInfo" element={<InfoPage />} />  
-        </Routes>
-      </Router>
-      <Footer />
-    </>
+      <>
+        <Header /><hr></hr>
+        <main>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/searchForm" element={<SearchForm />} />
+              <Route path="/pupPlaces" element={<DestinationList />} /> 
+              <Route path="/idealInfo" element={<InfoPage />} />  
+            </Routes>
+          </Router>
+          <Footer />
+        </main>
+      </>
   )
 }
 

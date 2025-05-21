@@ -1,0 +1,13 @@
+body {
+    background-image: url("./assets/pawprintBackground.jpg");
+    background-size: auto;
+}
+
+.image {
+    padding: 10px;
+}
+
+.picture {
+    padding: 10px;
+}
+
