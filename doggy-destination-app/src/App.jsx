@@ -5,6 +5,7 @@ import SearchForm from './components/SearchForm'
 import DestinationList from './components/DestinationList'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Route, Routes } from "react-router"
+import InfoPage from './components/InfoPage'
 
 function App() {
   
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/searchForm" element={<SearchForm />} />
-          <Route path="/pupPlaces" element={<DestinationList />} />   
+          <Route path="/pupPlaces" element={<DestinationList />} /> 
+          <Route path="/idealInfo" element={<InfoPage />} />  
         </Routes>
       </Router>
       <Footer />
