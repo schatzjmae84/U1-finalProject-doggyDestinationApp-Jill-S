@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useParams } from "react-router"
 
 
-
 export default function SearchForm() {
 
     const {searchForm} = useParams();
@@ -32,10 +31,31 @@ export default function SearchForm() {
         <h1>Search Form</h1>
         <form>
             <label>
-                
+                Pup's Name:
+                <input type="text" name="pupName" value={formData.pupName}
+                onChange={handleChange}/>
+            </label><br />
+            <label>
+                Type of Dog:
+                <input type="text" name="dogType" value={formData.dogType}
+                onChange={handleChange}/>
+            </label><br />
+            <label>
+                Type of Pup Activity:
+                <input type="text" name="activity" value={formData.activity}
+                onChange={handleChange}/>
+            </label><br />
+            <label>
+                Zip Code for Search:
+                <input type="text" name="zipCode" value={formData.zipCode}
+                onChange={handleChange}/>
             </label>
         </form>
-
+        <h2>REVIEW YOUR SEARCH INPUT BELOW</h2>
+        <p>Pup's Name: {formData.pupName}</p>
+        <p>Type of Dog: {formData.dogType}</p>
+        <p>Type of Pup Activity: {formData.activity}</p>
+        <p>Zip Code for Search: {formData.zipCode}</p>
         </div>
-    )
-}
+    );
+};

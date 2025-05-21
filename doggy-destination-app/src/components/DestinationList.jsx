@@ -11,18 +11,18 @@ export default function DestinationList() {
 
 
     return (
-        <div>
+        
+        <div className="container">
             <h2>{pupPlaces}</h2>
-            <ol>
-                <li>Link 1</li>
-                <li>Link 2</li>
-                <li>Link 3</li>
-            </ol>
-            <div>
-               <img className="image" src={image} width="200" height="225" alt="Dog in car" />
-               <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />               
-            </div>
-            <Link to="/searchForm">Return to Search Form</Link>
+            <div>Link1</div>
+            <div>Link2</div>
+            <div>Link3</div>
+            <div>Link4</div>
+            <div>Link5</div>
+            <div>Link6</div>
+            <div><img className="image" src={image} width="200" height="225" alt="Dog in car" /></div>
+            <div><img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" /></div>              
+            <div><Link to="/searchForm">Return to Search Form</Link></div>
         </div>
     );
 

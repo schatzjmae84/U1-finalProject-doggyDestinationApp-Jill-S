@@ -1,6 +1,23 @@
 body {
     background-image: url("./assets/pawprintBackground.jpg");
     background-size: auto;
+    font-family: "Playfair Display", serif;
+}
+
+.container {
+    display: grid;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+
+.Link1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.Link2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
 .image {
@@ -11,3 +28,10 @@ body {
     padding: 10px;
 }
 
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
