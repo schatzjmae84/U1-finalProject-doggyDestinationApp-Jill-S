@@ -29,7 +29,7 @@ export default function SearchForm() {
         </p>
         <h2>{searchForm}</h2>
         <h1>Search Form</h1>
-        <form>
+        <form className="pupForm">
             <label>
                 Pup's Name:
                 <input type="text" name="pupName" value={formData.pupName}
@@ -51,11 +51,14 @@ export default function SearchForm() {
                 onChange={handleChange}/>
             </label>
         </form>
-        <h2>REVIEW YOUR SEARCH INPUT BELOW</h2>
+        <h2>Review Your Search Input Below</h2>
+        <div className="input">
         <p>Pup's Name: {formData.pupName}</p>
         <p>Type of Dog: {formData.dogType}</p>
         <p>Type of Pup Activity: {formData.activity}</p>
         <p>Zip Code for Search: {formData.zipCode}</p>
+        </div>
+        <button>Submit Form</button>
         </div>
     );
 };

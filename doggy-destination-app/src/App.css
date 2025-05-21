@@ -6,7 +6,21 @@ body {
 
 header {
     padding: 10px;
+    color: rgb(172, 15, 101);
+    font-weight: bolder;
+    font-size: larger;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.pic {
+    padding: 25px;
+    border: double;
     
+}
+
+main {
+    color: rgb(52, 117, 238);
 }
 
 .container {
@@ -48,14 +62,36 @@ header {
 
 .image {
     padding: 10px;
+    
 }
 
 .picture {
     padding: 10px;
+    
 }
 
-.footer {
+.dogPic {
     padding: 10px;
+    
+}
+
+input {
+    padding: 10px;
+}
+
+.input {
+    background-color: rgb(243, 231, 120);
+    border: double;
+    font-weight: bold;
+    font-size: large;
+}
+
+footer {
+    padding: 10px;
+    font-weight: bolder;
+    font-size: medium;
+    background-color: rgb(153, 207, 238);
+    border: dashed;
 }
 
 
