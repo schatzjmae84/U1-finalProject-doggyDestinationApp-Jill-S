@@ -5,7 +5,7 @@ import SearchForm from './components/SearchForm'
 import DestinationList from './components/DestinationList'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Route, Routes } from "react-router"
-import InfoPage from './components/InfoPage'
+import SelectedDestination from './components/SelectedDestination'
 
 function App() {
   
@@ -18,7 +18,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/searchForm" element={<SearchForm />} />
               <Route path="/pupPlaces" element={<DestinationList />} /> 
-              <Route path="/idealInfo" element={<InfoPage />} />  
+              <Route path="/idealInfo" element={<SelectedDestination />} />  
             </Routes>
           </Router>
           <Footer />

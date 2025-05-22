@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router"
 import "./Form.css"
 import { Link } from "react-router"
-import DestinationList from "./DestinationList";
-import dogData from "../assets/data.json"
+
 
 export default function SearchForm() {
 

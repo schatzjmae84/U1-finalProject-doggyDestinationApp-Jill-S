@@ -3,12 +3,24 @@ import { Link } from "react-router"
 import image from "../assets/pupPic1.jpg"
 import picture from "../assets/pupPic2.jpg"
 import dogPic from "../assets/pupPic4.jpg"
+import SelectedDestination from "./SelectedDestination"
+import dogData from "../assets/data.json"
 
-export default function DestinationList(props) {
+export default function DestinationList() {
+
+    const {pupPlaces} = useParams();
+
+    const [destination, setDestination] = useState(
+            dogData.map(object => {
+                return { ...object };
+            })
+        );
+
+        const 
 
     
 
-    const {pupPlaces} = useParams();
+    
     
 
 
