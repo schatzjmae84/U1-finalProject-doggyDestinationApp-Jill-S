@@ -1,7 +1,11 @@
+/* Tablet breakpoint */
+/*@media only screen and (min-width: 768px) and (max-width: 1023px) {*/
+
 body {
     background-image: url("./assets/pawprintBackground.jpg");
     background-size: auto;
     font-family: "Playfair Display", serif;
+    padding: 10px;
 }
 
 header {
@@ -13,10 +17,19 @@ header {
     text-align: center;
 }
 
+h1 {
+    padding: 15px;
+}
+
 .pic {
     padding: 25px;
-    border: double;
-    
+    border: double;   
+    margin: 0.5vw; 
+}
+
+button {
+    padding: 20px;
+    margin: 0.5vw;
 }
 
 main {
@@ -79,11 +92,18 @@ input {
     padding: 10px;
 }
 
+h2 {
+    font-weight: bolder;
+}
+
 .input {
     background-color: rgb(243, 231, 120);
     border: double;
     font-weight: bold;
     font-size: large;
+    border-radius: 10px;
+    padding: 1vw;
+    margin: 0.5vw;
 }
 
 footer {
@@ -103,3 +123,4 @@ footer {
   font-weight: weight;
   font-style: normal;
 }
+

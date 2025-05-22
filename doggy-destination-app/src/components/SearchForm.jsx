@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router"
+import "./Form.css"
 
 
 export default function SearchForm() {
@@ -28,29 +29,29 @@ export default function SearchForm() {
             This app is created to help dog owners seek out places that they can go and take their puppers with them.  Whether you are looking for an outdoor dog park to give your dog some exercise, or maybe you are wanting to get out and socialize with other dog owners? Our search form below is all you need to fill out to get you to your desired "Doggy Destination!
         </p>
         <h2>{searchForm}</h2>
-        <h1>Search Form</h1>
-        <form className="pupForm">
-            <label>
-                Pup's Name:
-                <input type="text" name="pupName" value={formData.pupName}
+        <div className="form-box">
+        <form>
+            <div className="field1">
+            <h1>Search Form</h1>
+            <label>                
+                <input placeholder="Pup's Name" type="text" name="pupName" value={formData.pupName}
                 onChange={handleChange}/>
             </label><br />
-            <label>
-                Type of Dog:
-                <input type="text" name="dogType" value={formData.dogType}
+            <label>                
+                <input placeholder="Type of Dog" type="text" name="dogType" value={formData.dogType}
                 onChange={handleChange}/>
             </label><br />
-            <label>
-                Type of Pup Activity:
-                <input type="text" name="activity" value={formData.activity}
+            <label>                
+                <input placeholder="Type of Pup Activity" type="text" name="activity" value={formData.activity}
                 onChange={handleChange}/>
             </label><br />
-            <label>
-                Zip Code for Search:
-                <input type="text" name="zipCode" value={formData.zipCode}
+            <label>                
+                <input placeholder="Zip Code for Search" type="text" name="zipCode" value={formData.zipCode}
                 onChange={handleChange}/>
             </label>
+            </div>
         </form>
+        </div>
         <h2>Review Your Search Input Below</h2>
         <div className="input">
         <p>Pup's Name: {formData.pupName}</p>

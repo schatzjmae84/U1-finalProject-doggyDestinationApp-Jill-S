@@ -27,7 +27,7 @@ export default function DestinationList() {
             <div><img className="image" src={image} width="200" height="225" alt="Dog in car" />
             <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
             <img className="dogPic" src={dogPic} width="325" height="225"  alt="Four Dogs on a Log" /><br />              
-            <Link to="/searchForm">Return to Search Form</Link>
+            <Link to="/searchForm"><button>Return to Search Form</button></Link>
             </div>
         </div>
     );
