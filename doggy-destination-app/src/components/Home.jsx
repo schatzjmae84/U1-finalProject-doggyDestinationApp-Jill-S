@@ -8,7 +8,7 @@ const Home = () => {
             <p>Are you trying to find a fun place that both you and your pup can enjoy?  Then you have come to the right place!</p>
             <Link to="/searchForm"><button>Let's Get Started!</button></Link>
             <div>
-                <img className="pic" src={pic} width="300" height="225" alt="Dog wearing glasses!" />
+                <img className="pic" src={pic} width="375" height="275" alt="Dog wearing glasses!" />
             </div>
         </div>        
     );

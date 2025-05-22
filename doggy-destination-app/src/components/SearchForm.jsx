@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useParams } from "react-router"
 import "./Form.css"
-
+import { Link } from "react-router"
+import DestinationList from "./DestinationList";
+import dogData from "../assets/data.json"
 
 export default function SearchForm() {
 
@@ -19,13 +21,13 @@ export default function SearchForm() {
         setFormData((prevData) => ({
             ...prevData, [name]: value,
         }));
-    };
+    };    
 
 
     return (
 
         <div style={{textAlign: "center", marginTop: "20px"}}>
-        <p>
+        <p className="appIntro">
             This app is created to help dog owners seek out places that they can go and take their puppers with them.  Whether you are looking for an outdoor dog park to give your dog some exercise, or maybe you are wanting to get out and socialize with other dog owners? Our search form below is all you need to fill out to get you to your desired "Doggy Destination!
         </p>
         <h2>{searchForm}</h2>
@@ -42,7 +44,7 @@ export default function SearchForm() {
                 onChange={handleChange}/>
             </label><br />
             <label>                
-                <input placeholder="Type of Pup Activity" type="text" name="activity" value={formData.activity}
+                <input placeholder="Type of Pup Activity: Outdoor or Social" type="text" name="activity" value={formData.activity}
                 onChange={handleChange}/>
             </label><br />
             <label>                
@@ -52,14 +54,16 @@ export default function SearchForm() {
             </div>
         </form>
         </div>
-        <h2>Review Your Search Input Below</h2>
-        <div className="input">
-        <p>Pup's Name: {formData.pupName}</p>
-        <p>Type of Dog: {formData.dogType}</p>
-        <p>Type of Pup Activity: {formData.activity}</p>
-        <p>Zip Code for Search: {formData.zipCode}</p>
-        </div>
-        <button>Submit Form</button>
+            <h2>Review Your Search Input Below</h2>
+            <div className="input">
+                <p>Pup's Name: {formData.pupName}</p>
+                <p>Type of Dog: {formData.dogType}</p>
+                <p>Type of Pup Activity: {formData.activity}</p>
+                <p>Zip Code for Search: {formData.zipCode}</p>
+            </div>
+            <div>
+                <Link to="/pupPlaces"><button>Submit Form</button></Link>
+            </div>  
         </div>
     );
 };
