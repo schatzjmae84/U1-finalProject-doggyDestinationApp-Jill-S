@@ -1,10 +1,18 @@
-import { useState } from "react";
-import { useParams } from "react-router"
-import "./Form.css"
-import { Link } from "react-router"
+import { useState, useRef } from "react";
+import { useParams } from "react-router";
+import "./Form.css";
+import { Link } from "react-router";
 
 
-export default function SearchForm() {
+export default function SearchForm({ activity, setActivity }) {
+
+    const inputRef = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        setActivity([...activity, inputRef.current.value])
+        inputRef.current.value = ""
+    };
 
     const {searchForm} = useParams();
     const [formData, setFormData] = useState({
@@ -31,7 +39,7 @@ export default function SearchForm() {
         </p>
         <h2>{searchForm}</h2>
         <div className="form-box">
-        <form>
+        <form onSubmit={(event) => {handleSubmit(event)}}>
             <div className="field1">
             <h1>Search Form</h1>
             <label>                
@@ -43,7 +51,7 @@ export default function SearchForm() {
                 onChange={handleChange}/>
             </label><br />
             <label>                
-                <input placeholder="Type of Pup Activity: Outdoor or Social" type="text" name="activity" value={formData.activity}
+                <input placeholder="Type of Pup Activity: Outdoor or Social" type="text" name="activity" ref={inputRef} value={formData.activity}
                 onChange={handleChange}/>
             </label><br />
             <label>                
@@ -61,7 +69,7 @@ export default function SearchForm() {
                 <p>Zip Code for Search: {formData.zipCode}</p>
             </div>
             <div>
-                <Link to="/pupPlaces"><button>Submit Form</button></Link>
+                <Link to="/pupPlaces"><button type="submit">Submit Form</button></Link>
             </div>  
         </div>
     );

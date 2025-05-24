@@ -1,5 +1,5 @@
-import pic from "../assets/pupPic3.jpg"
-import { Link } from "react-router"
+import pic from "../assets/pupPic3.jpg";
+import { Link } from "react-router";
 
 const Home = () => {
     return (
