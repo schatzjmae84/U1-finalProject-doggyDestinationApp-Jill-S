@@ -4,53 +4,28 @@ import { Link } from "react-router";
 import image from "../assets/pupPic1.jpg";
 import picture from "../assets/pupPic2.jpg";
 import dogPic from "../assets/pupPic4.jpg";
-import SearchForm from "./SearchForm";
 
 
-export default function DestinationList() {
+const DestinationList = (props) => {
 
     const {pupPlaces} = useParams();
 
     const outdoor = ["Willmore Dog Park", "Central Park Maplewood", "SLU Dog Park & Sculpture Garden"];
+      
     const social = ["Bar K St. Louis", "Zoomies Pet Cafe + Boutique", "Rockwell Beer Garden"];
   
-    const [activity, setActivity] = useState([]);
 
-    useEffect(() => {
-        localStorage.setItem('activity', JSON.stringify(activity))    
-    }, [activity]); 
-
-    useEffect(() => {
-        const storedActivity = JSON.parse(localStorage.getItem('activity'));
-        if(activity) {
-            setActivity(activity);
-        }
-    }, []);
-
-    const activityType = [storedActivity];
-    const selectActivity = activityType.filter(checkType);
-
-    function checkType(type) {
-        if(type == "outdoor"){
-            return outdoor;
-        }else{
-            return social;
-        }
-    }
     
     return (
         
         <div>
             <h2>{pupPlaces}</h2>
-            <div>
-                <SearchForm activity={activity} setActivity={setActivity} />
-            </div>
-            <div className="container">
+            <div className={`list-container ${props.type}`}>
             <div className="item1">Here are some places you can go with your pup based on your search!</div>
-            <div className="item2">{selectActivity}</div>
+            {props.type === "outdoor" && <div className="item2"></div>}
             <div className="item3">Link3</div>
             <div className="item4">Link4</div>
-            <div className="item5">Link5</div>
+            {props.type === "social" && <div className="item5"></div>}
             <div className="item6">Link6</div>
             <div className="item7">Link7</div>
             </div>
@@ -63,3 +38,5 @@ export default function DestinationList() {
     );
 
 };
+
+export default DestinationList;
