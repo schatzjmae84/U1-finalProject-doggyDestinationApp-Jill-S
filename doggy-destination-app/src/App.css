@@ -124,7 +124,7 @@ footer {
 .playfair-display {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight: weight;
+  font-weight: normal;
   font-style: normal;
 }
 

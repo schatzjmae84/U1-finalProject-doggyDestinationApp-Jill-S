@@ -7,32 +7,30 @@ import pupData from "../assets/data.json"
 import DestinationInfo from "./DestinationInfo";
 
 
+
 export default function Main() {
 
     const {pupPlaces} = useParams();
 
-    const outdoor = ["Willmore Dog Park", "Central Park Maplewood", "SLU Dog Park & Sculpture Garden"];      
-    const social = ["Bar K St. Louis", "Zoomies Pet Cafe + Boutique", "Rockwell Beer Garden"];
-
-    const [ activityType, setActivityType ] = useState("");
-
     const [ pupInfo, setPupInfo ] = useState(
         pupData.map(object => {
-            return { ...object };
+            return {...object}
         })
     );
-
-    const handleActivityTypeChange = (type) => {
-        setActivityType(type)
-    };
 
     const handleUpdateActivity = (pupActivity) => {
         setPupInfo(prevState => {
             return { ...prevState, activity: pupActivity};
             
         });
-    };   
+    }; 
+
+    const filteredDestination = pupInfo.filter((dest) => {
+        return dest.activity === "Social";
+    });
     
+    //const [activityType, setActivityType] = useState("");
+
 
 
     return (
@@ -42,12 +40,20 @@ export default function Main() {
             <p className="appIntro">
                 This app is created to help dog owners seek out places that they can go and take their puppers with them.  Whether you are looking for an outdoor dog park to give your dog some exercise, or maybe you are wanting to get out and socialize with other dog owners? Our search form below is all you need to fill out to get you to your desired "Doggy Destination!
             </p> 
-                   
+                            
             <DestinationInfo 
-                type={activityType}
-                updateActivity={handleUpdateActivity} />        
-              
-            <SelectedDestination info={pupInfo} />
+                updateActivity={handleUpdateActivity} /> 
+            <SelectedDestination info={pupInfo} />    
+            <div>           
+                <ul>
+                    {filteredDestination.map((place) => (
+                        <li key={place.activity}>
+                            <Link to="/idealInfo">{place.name}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>            
         </div>
     );
 };
+

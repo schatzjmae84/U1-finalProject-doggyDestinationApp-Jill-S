@@ -1,9 +1,6 @@
 import { useParams } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router";
-import image from "../assets/pupPic1.jpg";
-import picture from "../assets/pupPic2.jpg";
-import dogPic from "../assets/pupPic4.jpg";
 
 
 const DestinationInfo = (props) => {
@@ -25,7 +22,7 @@ const DestinationInfo = (props) => {
     }; 
     
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
     }; 
 
     const handleActivityChange = (event) => {
@@ -42,7 +39,7 @@ const DestinationInfo = (props) => {
         <div>  
             <h2>{pupPlaces}</h2>      
         <div className="form-box">
-        <form onSubmit={(event) => {handleSubmit(event)}}>
+        <form onSubmit={handleSubmit}>
             <div className="field1">
             <h1>Search Form</h1>
             <label>                
@@ -54,8 +51,12 @@ const DestinationInfo = (props) => {
                 onChange={handleChange}/>
             </label><br />
             <label>                
-                <input placeholder="Type of Pup Activity: Outdoor or Social" type="text" name="activity" value={activityInput}
-                onChange={handleActivityChange}/>
+                Select Doggy Destination Type:
+                <select value={activityInput} onChange={handleActivityChange}>
+                    <option value="">--Choose an Activity!--</option>
+                    <option value="Outdoor">Outdoor</option>
+                    <option value="Social">Social Setting</option>
+                </select>
             </label><br />
             <label>                
                 <input placeholder="Zip Code for Search" type="text" name="zipCode" value={formData.zipCode}
@@ -68,33 +69,16 @@ const DestinationInfo = (props) => {
             <div className="input">
                 <p>Pup's Name: {formData.pupName}</p>
                 <p>Type of Dog: {formData.dogType}</p>
-                <p>Type of Pup Activity: {formData.activity}</p>
+                <p>Type of Pup Activity: {activityInput}</p>
                 <p>Zip Code for Search: {formData.zipCode}</p>
             </div>
             <div>
                 <button type="submit" onClick={handleActivityChange}>Submit Form</button>
-            </div>
-        
-        <div>
-            
-            <div className="list-container">
-            <div className="item1">Here are some places you can go with your pup based on your search!</div>
-            {props.type === "outdoor" && <div className="item2"></div>}
-            <div className="item3"></div>
-            <div className="item4"></div>
-            {props.type === "social" && <div className="item5"></div>}
-            <div className="item6"></div>
-            <div className="item7"></div>
-            </div>
-            <div><img className="image" src={image} width="200" height="225" alt="Dog in car" />
-            <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
-            <img className="dogPic" src={dogPic} width="325" height="225"  alt="Four Dogs on a Log" /><br />              
-            <Link to="/searchForm"><button>Return to Search Form</button></Link>
-            </div>
-        </div>
+            </div>        
         </div>
     );
 
 };
+
 
 export default DestinationInfo;
