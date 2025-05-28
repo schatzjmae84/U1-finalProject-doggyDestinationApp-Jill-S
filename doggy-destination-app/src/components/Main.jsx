@@ -34,7 +34,7 @@ export default function Main() {
             </p> 
                             
             <DestinationInfo updateActivity={handleUpdateActivity} />
-            <SelectedDestination info={pupInfo} />
+            
                 
                        
         </div>

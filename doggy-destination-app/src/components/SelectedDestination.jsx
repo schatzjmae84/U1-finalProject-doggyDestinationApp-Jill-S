@@ -4,12 +4,20 @@ import picture from "../assets/pupPic2.jpg";
 import dogPic from "../assets/pupPic4.jpg";
 import pupData from "../assets/data.json"
 import { useState, useEffect } from "react";
-//import RiseLoader from 'react-spinners/RiseLoader';
+import RiseLoader from 'react-spinners/RiseLoader';
 import { filteredDestination } from "../shared/utils";
 
 const SelectedDestination = () => {
 
     const {idealInfo} = useParams();
+
+    /*const outdoorActivities = pupData.filter((dest) => {
+        return dest.activity === "Outdoor";
+    });
+
+    const socialActivities = pupData.filter((place) => {
+        return place.activity === "Social";
+    });*/
 
     const [ activityType, setActivityType ] = useState("");
     const [ error, setError ] = useState("");
@@ -26,6 +34,7 @@ const SelectedDestination = () => {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
+            setDestination(filteredDestination(value));
             setLoading(false)
         }, 5000);
     }, []);
@@ -47,17 +56,19 @@ const SelectedDestination = () => {
             </label>
             <div>
                 { loading ? <RiseLoader loading={loading} /> :
-                <button onClick={() => filteredDestination(setActivityType)}>Display Pup Activities!</button>}
+                <button onClick={displayActivities}>Display Pup Activities!</button>}
             </div>
             {error && <p style={{color: "red"}}>{error}</p>} 
 
-            
+            {destination.length > 0 && (            
                 <div>
                     <ul>
-                        
+                        {destination.map((place) => {
+                            <li key={place.activity}>{destination}</li>
+                        })}                        
                     </ul>
                 </div>
-                     
+            )}         
             <div>
             <img className="image" src={image} width="200" height="225" alt="Dog in car" />
             <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
