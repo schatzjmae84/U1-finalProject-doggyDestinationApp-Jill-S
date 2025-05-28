@@ -3,43 +3,39 @@ import image from "../assets/pupPic1.jpg";
 import picture from "../assets/pupPic2.jpg";
 import dogPic from "../assets/pupPic4.jpg";
 import pupData from "../assets/data.json"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import RiseLoader from 'react-spinners/RiseLoader';
-import { filteredDestination } from "../shared/utils";
 
 const SelectedDestination = () => {
 
     const {idealInfo} = useParams();
 
-    /*const outdoorActivities = pupData.filter((dest) => {
-        return dest.activity === "Outdoor";
-    });
-
-    const socialActivities = pupData.filter((place) => {
-        return place.activity === "Social";
-    });*/
-
     const [ activityType, setActivityType ] = useState("");
     const [ error, setError ] = useState("");
     const [ loading, setLoading ] = useState(false);
-    const [ destination, setDestination] = useState();
+    const [ destination, setDestination] = useState(pupData);
+
+    
+
     
     const displayActivities = () => {
         if (!activityType) {
             setError("Please, select an activity to get started!");
             return;
         }
-    setError("");
-
-    useEffect(() => {
-        setLoading(true)
+        setError("");
+        setLoading(true)       
         setTimeout(() => {
-            setDestination(filteredDestination(value));
+            setDestination((currentDest) => {
+            pupData.filter((dest) => dest.activity === currentDest);
+        })    
+    
+            console.log(setDestination);
             setLoading(false)
         }, 5000);
-    }, []);
-};
+    };
 
+    
     
     
     return (
@@ -56,19 +52,23 @@ const SelectedDestination = () => {
             </label>
             <div>
                 { loading ? <RiseLoader loading={loading} /> :
-                <button onClick={displayActivities}>Display Pup Activities!</button>}
+                <button onClick={displayActivities}>Display Pup Activities!</button>}                
             </div>
             {error && <p style={{color: "red"}}>{error}</p>} 
-
-            {destination.length > 0 && (            
-                <div>
-                    <ul>
-                        {destination.map((place) => {
-                            <li key={place.activity}>{destination}</li>
-                        })}                        
-                    </ul>
-                </div>
-            )}         
+                       
+            <div>
+                <ul>
+                    {destination.map((dest) => {
+                        <li key={dest.activity}>
+                            {dest.name} 
+                            {dest.description}
+                            {dest.address}
+                            {dest.website}
+                            </li>            
+                                
+                    })}                        
+                </ul>
+            </div>                    
             <div>
             <img className="image" src={image} width="200" height="225" alt="Dog in car" />
             <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
