@@ -19,17 +19,17 @@ const DestinationInfo = (props) => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevData) => ({ ...prevData, [name]: value,}));
-    }; 
-    
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }; 
+    };      
 
     const handleActivityChange = (event) => {
         event.preventDefault();
         let pupActivity = (event.target.value);
         setActivityInput(pupActivity);
         props.updateActivity(pupActivity);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
     };
     
     
@@ -51,12 +51,7 @@ const DestinationInfo = (props) => {
                 onChange={handleChange}/>
             </label><br />
             <label>                
-                Select Doggy Destination Type:
-                <select value={activityInput} onChange={handleActivityChange}>
-                    <option value="">--Choose an Activity!--</option>
-                    <option value="Outdoor">Outdoor</option>
-                    <option value="Social">Social Setting</option>
-                </select>
+                <input placeholder="Type of Pup Activity: Outdoor or Social" type="text" name="activity" value={activityInput} onChange={handleActivityChange}/>
             </label><br />
             <label>                
                 <input placeholder="Zip Code for Search" type="text" name="zipCode" value={formData.zipCode}
@@ -74,7 +69,10 @@ const DestinationInfo = (props) => {
             </div>
             <div>
                 <button type="submit" onClick={handleActivityChange}>Submit Form</button>
-            </div>        
+            </div>  
+            <div>
+                <Link to="/idealInfo"><button>Continue to Pup Activity Info!</button></Link> 
+            </div>      
         </div>
     );
 

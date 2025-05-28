@@ -2,9 +2,9 @@ import { useState} from "react";
 import { useParams } from "react-router";
 import "./Form.css";
 import { Link } from "react-router";
-import SelectedDestination from "./SelectedDestination";
 import pupData from "../assets/data.json"
 import DestinationInfo from "./DestinationInfo";
+import SelectedDestination from "./SelectedDestination";
 
 
 
@@ -14,25 +14,17 @@ export default function Main() {
 
     const [ pupInfo, setPupInfo ] = useState(
         pupData.map(object => {
-            return {...object}
+            return { ...object };
         })
     );
 
     const handleUpdateActivity = (pupActivity) => {
         setPupInfo(prevState => {
-            return { ...prevState, activity: pupActivity};
-            
+            return { ...prevState, activity: pupActivity};            
         });
     }; 
 
-    const filteredDestination = pupInfo.filter((dest) => {
-        return dest.activity === "Social";
-    });
     
-    //const [activityType, setActivityType] = useState("");
-
-
-
     return (
 
         <div style={{textAlign: "center", marginTop: "20px"}}>
@@ -41,18 +33,10 @@ export default function Main() {
                 This app is created to help dog owners seek out places that they can go and take their puppers with them.  Whether you are looking for an outdoor dog park to give your dog some exercise, or maybe you are wanting to get out and socialize with other dog owners? Our search form below is all you need to fill out to get you to your desired "Doggy Destination!
             </p> 
                             
-            <DestinationInfo 
-                updateActivity={handleUpdateActivity} /> 
-            <SelectedDestination info={pupInfo} />    
-            <div>           
-                <ul>
-                    {filteredDestination.map((place) => (
-                        <li key={place.activity}>
-                            <Link to="/idealInfo">{place.name}</Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>            
+            <DestinationInfo updateActivity={handleUpdateActivity} />
+            <SelectedDestination info={pupInfo} />
+                
+                       
         </div>
     );
 };
