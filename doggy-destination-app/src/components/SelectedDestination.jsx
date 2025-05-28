@@ -3,7 +3,8 @@ import image from "../assets/pupPic1.jpg";
 import picture from "../assets/pupPic2.jpg";
 import dogPic from "../assets/pupPic4.jpg";
 import pupData from "../assets/data.json"
-import { useState} from "react";
+import { useState, useEffect } from "react";
+import RiseLoader from 'react-spinners/RiseLoader';
 
 const SelectedDestination = () => {
 
@@ -12,13 +13,22 @@ const SelectedDestination = () => {
     const [ activityType, setActivityType ] = useState("");
     const [ error, setError ] = useState("");
     const [ loading, setLoading ] = useState(false);
+    const [ destination, setDestination ] = useState({});
 
     const displayActivities = () => {
         if (!activityType) {
             setError("Please, select an activity to get started!");
             return;
         }
-    };
+    
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setDestination(pupData.activityType);
+            setLoading(false)
+        }, 5000);
+    }, []);
+};
 
     
     
@@ -33,9 +43,22 @@ const SelectedDestination = () => {
                     <option value="Outdoor">Outdoor Adventures</option>
                     <option value="Social">Social Settings for both of you!</option>
                 </select> 
-                <button onClick={}></button>  
             </label>
-            {error && <p style={{color: "red"}}>{error}</p>}          
+            <div>
+                { loading ? <RiseLoader loading={loading} /> :
+                <button onClick={displayActivities}>Display Pup Activities!</button>}
+            </div>
+            {error && <p style={{color: "red"}}>{error}</p>} 
+
+            {destination.length > 0 } && (
+                <div>
+                    <ul>
+                        {destination.map((dest, index) => (
+                            <li key={index}>{dest}</li>
+                        ))}
+                    </ul>
+                </div>
+            );         
             <div>
             <img className="image" src={image} width="200" height="225" alt="Dog in car" />
             <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
