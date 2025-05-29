@@ -30,8 +30,7 @@ const DestinationInfo = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    };
-    
+    };    
     
           
     return (
@@ -41,7 +40,7 @@ const DestinationInfo = (props) => {
         <div className="form-box">
         <form onSubmit={handleSubmit}>
             <div className="field1">
-            <h1>Search Form</h1>
+            <h1>Pup Place Participant Form</h1>
             <label>                
                 <input placeholder="Pup's Name" type="text" name="pupName" value={formData.pupName}
                 onChange={handleChange}/>

@@ -2,9 +2,9 @@ import { useParams } from "react-router"
 import image from "../assets/pupPic1.jpg";
 import picture from "../assets/pupPic2.jpg";
 import dogPic from "../assets/pupPic4.jpg";
-import pupData from "../assets/data.json"
 import { useState } from "react";
 import RiseLoader from 'react-spinners/RiseLoader';
+import { Link } from "react-router";
 
 const SelectedDestination = () => {
 
@@ -13,10 +13,12 @@ const SelectedDestination = () => {
     const [ activityType, setActivityType ] = useState("");
     const [ error, setError ] = useState("");
     const [ loading, setLoading ] = useState(false);
-    const [ destination, setDestination] = useState(pupData);
+    const [ destination, setDestination] = useState([]);
 
-    
-
+    const destinationNames = {
+        Outdoor: ["Willmore Dog Park", "Central Park Maplewood", "SLU Dog Park & Sculpture Garden"],
+        Social: ["Bar K St. Louis", "Zoomies Pet Cafe + Boutique", "Rockwell Beer Garden"]
+    };  
     
     const displayActivities = () => {
         if (!activityType) {
@@ -26,16 +28,10 @@ const SelectedDestination = () => {
         setError("");
         setLoading(true)       
         setTimeout(() => {
-            setDestination((currentDest) => {
-            pupData.filter((dest) => dest.activity === currentDest);
-        })    
-    
-            console.log(setDestination);
+            setDestination(destinationNames[activityType]);
             setLoading(false)
-        }, 5000);
-    };
-
-    
+        }, 2000);
+    };    
     
     
     return (
@@ -55,24 +51,22 @@ const SelectedDestination = () => {
                 <button onClick={displayActivities}>Display Pup Activities!</button>}                
             </div>
             {error && <p style={{color: "red"}}>{error}</p>} 
-                       
+
+            {destination.length > 0 && (                                              
+                <div>
+                    <h2>Here are the Doggy Destinations in the category you selected:</h2>
+                    <ul>
+                        {destination.map((dest, index) => (
+                            <Link to="/doggyDestinations"><li key={index}>{dest}</li></Link>
+                        ))}              
+                     </ul>
+                </div>
+            )}                                                  
+                                   
             <div>
-                <ul>
-                    {destination.map((dest) => {
-                        <li key={dest.activity}>
-                            {dest.name} 
-                            {dest.description}
-                            {dest.address}
-                            {dest.website}
-                            </li>            
-                                
-                    })}                        
-                </ul>
-            </div>                    
-            <div>
-            <img className="image" src={image} width="200" height="225" alt="Dog in car" />
-            <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
-            <img className="dogPic" src={dogPic} width="325" height="225"  alt="Four Dogs on a Log" /><br />              
+                <img className="image" src={image} width="200" height="225" alt="Dog in car" />
+                <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
+                <img className="dogPic" src={dogPic} width="325" height="225"  alt="Four Dogs on a Log" /><br />              
             </div>
         </div>        
     );
