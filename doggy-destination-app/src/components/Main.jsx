@@ -33,7 +33,8 @@ export default function Main() {
                 </p> 
                 <p>Would you like to become a "Pup Place Participant"?  Submit the form below to get signed up for other app pupPerks! 
                 </p>                             
-            <DestinationInfo updateActivity={handleUpdateActivity} />               
+            <DestinationInfo updateActivity={handleUpdateActivity}
+            info={pupInfo} />               
                        
         </div>
     );

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router"
 import SelectedDestination from './components/SelectedDestination'
 import InfoPage from './components/InfoPage'
 
+
 function App() {
   
   return (

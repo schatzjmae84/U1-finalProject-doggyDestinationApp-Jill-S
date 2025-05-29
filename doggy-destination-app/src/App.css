@@ -42,6 +42,8 @@ main {
     text-align: justify;
 }
 
+
+
 .container {
     display: grid;
     column-gap: 25px;

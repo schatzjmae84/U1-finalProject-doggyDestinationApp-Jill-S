@@ -1,6 +1,8 @@
 import { useParams } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast, Bounce, Zoom } from "react-toastify";
 
 
 const DestinationInfo = (props) => {
@@ -18,21 +20,28 @@ const DestinationInfo = (props) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value,}));
+        setFormData({ ...formData, [name]: value,});
     };      
 
     const handleActivityChange = (event) => {
         event.preventDefault();
         let pupActivity = (event.target.value);
         setActivityInput(pupActivity);
-        props.updateActivity(pupActivity);
+        props.updateActivity(pupActivity);        
     };
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-    };    
+        console.log("Form Submitted:", FormData); 
+    };   
     
-          
+    const submitSuccess = () => {
+    toast("Thank you!  Your \'Pup Place Participant Form' has been successfully submitted!", {
+            className: "success-toast",
+            draggable: true,
+        });       
+    };
+
     return (
 
         <div>  
@@ -67,11 +76,12 @@ const DestinationInfo = (props) => {
                 <p>Zip Code for Search: {formData.zipCode}</p>
             </div>
             <div>
-                <button type="submit" onClick={handleActivityChange}>Submit Form</button>
+                <button type="submit" onClick={submitSuccess}>Submit Form</button>
             </div>  
             <div>
-                <Link to="/idealInfo"><button>Continue to Pup Activity Info!</button></Link> 
-            </div>      
+                <Link to="/idealInfo"><button>Continue to Pup Activity Info!</button></Link>             
+            </div>
+            <ToastContainer />      
         </div>
     );
 
