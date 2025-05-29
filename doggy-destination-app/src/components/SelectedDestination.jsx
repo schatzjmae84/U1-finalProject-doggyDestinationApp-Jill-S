@@ -42,7 +42,7 @@ const SelectedDestination = () => {
                 Select the type of activity you are interested in:
                 <select value={activityType} onChange={(event) => setActivityType(event.target.value)}>
                     <option value="">--Doggy Destinations--</option>
-                    <option value="Outdoor" onChange={handleChange}>Outdoor Adventures</option>
+                    <option value="Outdoor">Outdoor Adventures</option>
                     <option value="Social">Social Settings for both of you!</option>
                 </select> 
             </label>
@@ -52,7 +52,7 @@ const SelectedDestination = () => {
             </div>
             {error && <p style={{color: "red"}}>{error}</p>} 
 
-            {destination.length > 0 && (                                              
+            {destination.length > 0 && (                                               
                 <div>
                     <h2>Here are the Doggy Destinations in the category you selected:</h2>
                     <ul>
