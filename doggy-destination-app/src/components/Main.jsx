@@ -31,7 +31,7 @@ export default function Main() {
                 <p className="appIntro">
                     This app is created to help dog owners seek out places that they can go and take their puppers with them.  Whether you are looking for an outdoor dog park to give your dog some exercise, or maybe you are wanting to get out and socialize with other dog owners?  This site is what you are looking for to get you to your desired "Doggy Destination!"
                 </p> 
-                <p>Would you like to become a "Pup Place Participant"?  Submit the form below to get signed up for other app pupPerks! 
+                <p className="question">Would you like to become a "Pup Place Participant"?  Submit the form below to get signed up for other app pupPerks! 
                 </p>                             
             <DestinationInfo updateActivity={handleUpdateActivity}
             info={pupInfo} />               

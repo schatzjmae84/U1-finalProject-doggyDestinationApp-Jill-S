@@ -27,12 +27,12 @@ const DestinationInfo = (props) => {
         event.preventDefault();
         let pupActivity = (event.target.value);
         setActivityInput(pupActivity);
-        props.updateActivity(pupActivity);        
+        props.updateActivity(pupActivity); 
+        console.log("Form Submitted:", pupActivity);       
     };
     
     const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("Form Submitted:", FormData); 
+        event.preventDefault();         
     };   
     
     const submitSuccess = () => {
@@ -49,7 +49,7 @@ const DestinationInfo = (props) => {
         <div className="form-box">
         <form onSubmit={handleSubmit}>
             <div className="field1">
-            <h1>Pup Place Participant Form</h1>
+            <h1 className="title">Pup Place Participant Form</h1>
             <label>                
                 <input placeholder="Pup's Name" type="text" name="pupName" value={formData.pupName}
                 onChange={handleChange}/>
@@ -67,9 +67,9 @@ const DestinationInfo = (props) => {
             </label>
             </div>
         </form>
-        </div>
-            <h2>Review Your Search Input Below</h2>
+        </div>            
             <div className="input">
+                <h2>Review Your Search Input</h2>
                 <p>Pup's Name: {formData.pupName}</p>
                 <p>Type of Dog: {formData.dogType}</p>
                 <p>Type of Pup Activity: {activityInput}</p>

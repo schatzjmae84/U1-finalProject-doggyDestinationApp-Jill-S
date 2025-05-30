@@ -1,11 +1,8 @@
-/* Tablet breakpoint */
-/*@media only screen and (min-width: 768px) and (max-width: 1023px) {*/
-
-body {
-    background-image: url("./assets/pawprintBackground.jpg");
-    background-size: 600px 1080px;
+body {    
     font-family: "Playfair Display", serif;
     padding: 10px;
+    background-image: url("./assets/pawprintBackground.jpg");
+    background-size: 810px 1080px;
 }
 
 header {
@@ -18,7 +15,7 @@ header {
 }
 
 h1 {
-    padding: 15px;
+    padding: 15px;    
 }
 
 .pic {
@@ -30,10 +27,13 @@ h1 {
 button {
     padding: 20px;
     margin: 0.5vw;
+    cursor: pointer;
+    color: blue;
+    background-color: aliceblue;
 }
 
 main {
-    color: rgb(52, 117, 238);
+    color: rgb(52, 117, 238);    
 }
 
 .appIntro {
@@ -42,18 +42,36 @@ main {
     text-align: justify;
 }
 
+.question {
+    font-size: large;
+    font-weight: bold;
+    text-align: justify;
+}
 
+h3 {
+    color: blue;
+    border: dotted;
+    text-align: center;
+
+}
 
 .container {
     display: grid;
     column-gap: 25px;
     row-gap: 25px;
     padding: 10px;
+    margin: 1vw;
+    border: double;
+    background-color: rgb(245, 239, 184);
+    border-radius: 10px;
+    border-width: thick;
+    font-weight: bold;
+    opacity: 0.90;
 }
 
 .item0 {
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 3;    
 }
 
 .item1 {
@@ -112,6 +130,8 @@ input {
 
 h2 {
     font-weight: bolder;
+    color: blue;
+    text-decoration: underline;
 }
 
 .input {

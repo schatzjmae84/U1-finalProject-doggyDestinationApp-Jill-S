@@ -8,8 +8,7 @@ const InfoPage = () => {
 
     return (
 
-        <div>
-            
+        <div>            
             <h2>{doggyDestinations}</h2>
             <div className="container">
                 <div className="item0">
