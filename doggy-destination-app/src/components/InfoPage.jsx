@@ -1,14 +1,18 @@
 import { useParams } from "react-router"; 
 import { Link } from "react-router";
+import ReactImageGallery from "react-image-gallery";
+import { PupPics } from "./PupPics.js";
+import "react-image-gallery/styles/css/image-gallery.css";
+import "./InfoPage.css";
+
 
 const InfoPage = () => {
 
     const {doggyDestinations} = useParams();
 
-
     return (
 
-        <div>            
+        <div> 
             <h2>{doggyDestinations}</h2>
             <div className="container">
                 <div className="item0">
@@ -53,6 +57,17 @@ const InfoPage = () => {
                         <p>Pizza, pups, and pints!  All located in wonderful Francis Park!</p>
                         <p>5300 Donovan Ave, St. Louis, MO, 63109</p>
                         <Link to="https://www.rockwellbeer.com/francis-park">Rockwell Beer Garden Website</Link>
+                </div>
+            </div>
+            <div className="image-gallery">
+                <div className="image-title">
+                    <h2>Thank you for visiting the Doggy Destination App!</h2>
+                </div>
+                <div className="image-gallery-wrapper">
+                    <ReactImageGallery items={PupPics}
+                    autoPlay={true}
+                    lazyLoad={true}
+                     />
                 </div>
             </div>
         </div>

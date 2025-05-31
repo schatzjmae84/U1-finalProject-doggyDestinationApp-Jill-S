@@ -2,7 +2,9 @@ body {
     font-family: "Playfair Display", serif;
     padding: 10px;
     background-image: url("./assets/pawprintBackground.jpg");
-    background-size: 810px 1080px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 header {

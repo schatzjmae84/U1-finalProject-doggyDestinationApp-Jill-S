@@ -2,21 +2,23 @@ import { useParams } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast, Bounce, Zoom } from "react-toastify";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 
-const DestinationInfo = (props) => {
+const DestinationInfo = () => {
 
     const {pupPlaces} = useParams();
 
     const [ activityInput, setActivityInput ] = useState("");
 
-    const [formData, setFormData] = useState({
+    const [ formData, setFormData ] = useState({
         pupName: "",
         dogType: "",
         activity: "",
         zipCode: "",
     });
+
+    const [ errors, setErrors ] = useState({});
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -27,20 +29,43 @@ const DestinationInfo = (props) => {
         event.preventDefault();
         let pupActivity = (event.target.value);
         setActivityInput(pupActivity);
-        props.updateActivity(pupActivity); 
-        console.log("Form Submitted:", pupActivity);       
+        props.updateActivity(pupActivity);               
     };
     
     const handleSubmit = (event) => {
-        event.preventDefault();         
-    };   
+        event.preventDefault();
+        const newErrors = validateNeededInfo(formData);
+        setErrors(newErrors);
+        
+        if (Object.keys(newErrors).length === 0) {
+            console.log("Thank you for your form submission!");                        
+        }else{ 
+            console.log("Please, check over your required information and resubmit.");
+            }
+        };
+        
+        const validateNeededInfo = (data) => {
+            const errors = {};
+
+            if (!data.activity) {
+                errors.activity = "Activity Selection is Required";
+            }
+
+            if (!data.zipCode) {
+                errors.zipCode = "Please enter a valid Zip Code to proceed";
+            }
+
+            return errors;
+        };
+
+        const submitSuccess = () => {
+        toast("Thank you!  Your \'Pup Place Participant Form' has been successfully submitted!", {
+                className: "success-toast",
+                draggable: true,
+                transition: Bounce,
+                });
+            }     
     
-    const submitSuccess = () => {
-    toast("Thank you!  Your \'Pup Place Participant Form' has been successfully submitted!", {
-            className: "success-toast",
-            draggable: true,
-        });       
-    };
 
     return (
 
@@ -60,10 +85,20 @@ const DestinationInfo = (props) => {
             </label><br />
             <label>                
                 <input placeholder="Type of Pup Activity: Outdoor or Social" type="text" name="activity" value={activityInput} onChange={handleActivityChange}/>
+                {errors.activity && (
+                    <span className="error-message">
+                        {errors.activity}
+                    </span>
+                )}
             </label><br />
             <label>                
                 <input placeholder="Zip Code for Search" type="text" name="zipCode" value={formData.zipCode}
                 onChange={handleChange}/>
+                {errors.zipCode && (
+                    <span className="error-message">
+                        {errors.zipCode}
+                    </span>
+                )}
             </label>
             </div>
         </form>
@@ -84,7 +119,6 @@ const DestinationInfo = (props) => {
             <ToastContainer />      
         </div>
     );
-
 };
 
 
