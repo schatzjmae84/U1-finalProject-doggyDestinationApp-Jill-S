@@ -7,14 +7,16 @@ import RiseLoader from 'react-spinners/RiseLoader';
 import { Link } from "react-router";
 import "./SelectedDestination.css"
 
+
 const SelectedDestination = () => {
 
     const {idealInfo} = useParams();
 
-    const [ activityType, setActivityType ] = useState("");
-    const [ error, setError ] = useState("");
+    const [ activityType, setActivityType ] = useState(""); // Use of state to handle activity type changes in the drop menu
+    const [ error, setError ] = useState("");  // Error handling if no activity is chosen
     const [ loading, setLoading ] = useState(false);
-    const [ destination, setDestination] = useState([]);
+    const [ destination, setDestination] = useState([]); // Use of state to handle the mapping of the information for the chosen activity/destination type
+    const [ hover, setHover ] = useState(false);  // Fun hover pup messages on included images
 
     const destinationNames = {
         Outdoor: ["Willmore Dog Park", "Central Park Maplewood", "SLU Dog Park & Sculpture Garden"],
@@ -32,8 +34,21 @@ const SelectedDestination = () => {
             setDestination(destinationNames[activityType]);
             setLoading(false)
         }, 2000);
-    };    
+    };
     
+    const hoverData = "'I can't wait to get to the Dog Park!'";
+    const hoverMessage = "'We love playing fetch with our BALL!'";
+    const hoverPhrase = "'Isn't it so cool that our humans brought us to the Dog Park today?!'";
+
+    const onHover = (event) => {
+        event.preventDefault();
+        setHover(true);
+    };
+
+    const onHoverOver = (event) => {
+        event.preventDefault();
+        setHover(false);
+    };    
     
     return (
         <div className="selected-destination">
@@ -48,7 +63,7 @@ const SelectedDestination = () => {
                 </select> 
             </label>
             <div>
-                { loading ? <RiseLoader loading={loading} /> :
+                { loading ? <RiseLoader color="purple" loading={loading} /> :
                 <button onClick={displayActivities}>Display Pup Activities!</button>}                
             </div>
             {error && <p style={{color: "red"}}>{error}</p>} 
@@ -64,11 +79,35 @@ const SelectedDestination = () => {
                 </div>
             )}                                                  
                                    
-            <div>
-                <img className="image" src={image} width="200" height="225" alt="Dog in car" />
-                <img className="picture" src={picture} width="300" height="225" alt="Happy Dog Play at the Park" />
-                <img className="dogPic" src={dogPic} width="325" height="225"  alt="Four Dogs on a Log" /><br />              
-            </div>
+              <div className="flex-container">
+                <div onMouseEnter={(event) => onHover(event)}
+                    onMouseLeave={(event) => onHoverOver(event)}>              
+                <img className="image" src={image} width="225" height="250" alt="Dog in car" />        
+                {hover && (        
+                    <div>
+                        <p>{hoverData}</p>
+                    </div>
+                )}
+                </div>
+                <div onMouseEnter={(event) => onHover(event)}
+                    onMouseLeave={(event) => onHoverOver(event)}>
+                <img className="picture" src={picture} width="335" height="250" alt="Happy Dogs playing at the Park" />
+                    {hover && (        
+                    <div>
+                        <p>{hoverMessage}</p>
+                    </div>
+                )}
+                </div>
+                <div onMouseEnter={(event) => onHover(event)}
+                    onMouseLeave={(event) => onHoverOver(event)}>
+                <img className="dogPic" src={dogPic} width="360" height="250"  alt="Four Dogs on a Log" />
+                    {hover && (        
+                    <div>
+                        <p>{hoverPhrase}</p>
+                    </div>
+                )}
+                </div>             
+            </div><br />
         </div>        
     );
 };

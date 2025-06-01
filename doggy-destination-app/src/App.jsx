@@ -11,20 +11,20 @@ import InfoPage from './components/InfoPage'
 function App() {
   
   return (
-      <>
-        <Header /><hr></hr>
-        <main>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/pupPlaces" element={<Main />} />
-              <Route path="/idealInfo" element={<SelectedDestination />} />
-              <Route path="/doggyDestinations" element={<InfoPage />} />  
-            </Routes>
-          </Router>
-          <Footer />
-        </main>
-      </>
+    <>
+      <Header /><hr></hr>
+      <main>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pupPlaces" element={<Main />} />
+            <Route path="/idealInfo" element={<SelectedDestination />} />
+            <Route path="/doggyDestinations" element={<InfoPage />} />  
+          </Routes>
+        </Router>
+        <Footer />
+      </main>
+    </>
   )
 }
 

@@ -5,10 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 
 
-const DestinationInfo = () => {
+const DestinationInfo = (props) => {
 
     const {pupPlaces} = useParams();
 
+    // state variable to store the input from the activity portion of the form
     const [ activityInput, setActivityInput ] = useState("");
 
     const [ formData, setFormData ] = useState({
@@ -25,6 +26,8 @@ const DestinationInfo = () => {
         setFormData({ ...formData, [name]: value,});
     };      
 
+    //event handler for the new activity from the activity input
+    //when form input is handled in phase 2, this variable will be included in the onClick of the submit button
     const handleActivityChange = (event) => {
         event.preventDefault();
         let pupActivity = (event.target.value);
@@ -32,6 +35,7 @@ const DestinationInfo = () => {
         props.updateActivity(pupActivity);               
     };
     
+    // form submit event handler and form validation
     const handleSubmit = (event) => {
         event.preventDefault();
         const newErrors = validateNeededInfo(formData);
@@ -63,8 +67,8 @@ const DestinationInfo = () => {
                 className: "success-toast",
                 draggable: true,
                 transition: Bounce,
-                });
-            }     
+            });
+        };     
     
 
     return (

@@ -4,7 +4,7 @@ body {
     background-image: url("./assets/pawprintBackground.jpg");
     background-size: cover;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;    
 }
 
 header {
@@ -23,8 +23,15 @@ h1 {
 .pic {
     padding: 25px;
     border: double;   
-    margin: 0.5vw; 
+    margin: 1vw; 
 }
+
+@media screen and (max-width: 600) {
+    .pic {
+        margin-right: 25%;     
+    }
+}
+
 
 button {
     padding: 20px;
@@ -111,19 +118,19 @@ h3 {
     grid-column-end: 2;
 }
 
-.image {
-    padding: 10px;
-    
+.flex-container {
+    display: flex;
+    background-color: lightblue;
+    opacity: 0.90;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.picture {
+.flex-container > div {
+    margin: 10px;
     padding: 10px;
-    
-}
-
-.dogPic {
-    padding: 10px;
-    
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 input {
@@ -133,7 +140,6 @@ input {
 h2 {
     font-weight: bolder;
     color: blue;
-    text-decoration: underline;
 }
 
 .input {
@@ -147,11 +153,28 @@ h2 {
 }
 
 footer {
-    padding: 10px;
+    padding: 5px;
     font-weight: bolder;
     font-size: medium;
     background-color: rgb(153, 207, 238);
-    border: dashed;
+    border: 1px solid;
+    border-radius: 10px;
+    color: blue;
+    opacity: 0.80;
+}
+
+table, th, td {
+    border: 1px solid blue;
+    margin: 0.5vw;
+    font-size: small;
+    text-align: center;
+}
+
+th {
+    font-weight: bolder;
+    font-size: medium;
+    color: rgb(3, 3, 110);
+    text-decoration: underline;
 }
 
 /* Copied from Google Fonts*/

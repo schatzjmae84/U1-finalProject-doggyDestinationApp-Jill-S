@@ -1,13 +1,14 @@
 import { useState} from "react";
 import { useParams } from "react-router";
 import "./Form.css";
-import pupData from "../assets/data.json"
+import pupData from "../assets/data.json" // Used import instead of fetching JSON
 import DestinationInfo from "./DestinationInfo";
 
 export default function Main() {
 
     const {pupPlaces} = useParams();
 
+    // State variable to hold all destination objects
     const [ pupInfo, setPupInfo ] = useState(
         pupData.map(object => {
             return { ...object };
