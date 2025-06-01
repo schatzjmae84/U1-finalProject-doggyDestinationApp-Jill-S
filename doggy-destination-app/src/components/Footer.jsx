@@ -10,7 +10,7 @@ const Footer = () => {
                     </tr>
                     <tr>
                         <td>
-                            <a href="/">Home</a>
+                            <a href="https://doggy-destination.netlify.app/">Home</a>
                         </td>
                         <td>
                             <a href="https://www.bringfido.com/attraction/city/saint_louis_mo_us/">Bring Fido</a>
@@ -18,7 +18,7 @@ const Footer = () => {
                     </tr>
                     <tr>
                         <td>
-                            <a href="/pupPlaces">About</a>
+                            <a href="https://doggy-destination.netlify.app/pupPlaces">About</a>
                         </td>
                         <td>
                             <a href="https://explorestlouis.com/guide/pet-friendly-st-louis/">Explore St. Louis - Pet Paradise</a>
