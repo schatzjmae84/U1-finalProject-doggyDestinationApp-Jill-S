@@ -33,42 +33,43 @@ const DestinationInfo = (props) => {
         let pupActivity = (event.target.value);
         setActivityInput(pupActivity);
         props.updateActivity(pupActivity);               
-    };
+    };    
     
     // form submit event handler and form validation
     const handleSubmit = (event) => {
         event.preventDefault();
         const newErrors = validateNeededInfo(formData);
         setErrors(newErrors);
-        
+
         if (Object.keys(newErrors).length === 0) {
-            console.log("Thank you for your form submission!");                        
-        }else{ 
-            console.log("Please, check over your required information and resubmit.");
-            }
-        };
+            console.log("Thank you for your form submission!");
+        }else{
+            console.log("Please, review your required information and resubmit.")
+        }
+    };
+
+    const validateNeededInfo = (data) => {
+        const errors = {};
+
+        if (!data.activity) {
+            errors.activity = "Activity Selection is Required";
+        }
+
+        if (!data.zipCode) {
+            errors.zipCode = "Please, enter a valid Zip Code to proceed.";
+        }
+
+        return errors;
+    };
         
-        const validateNeededInfo = (data) => {
-            const errors = {};
 
-            if (!data.activity) {
-                errors.activity = "Activity Selection is Required";
-            }
-
-            if (!data.zipCode) {
-                errors.zipCode = "Please enter a valid Zip Code to proceed";
-            }
-
-            return errors;
-        };
-
-        const submitSuccess = () => {
+    const submitSuccess = () => {
         toast("Thank you!  Your \'Pup Place Participant Form' has been successfully submitted!", {
-                className: "success-toast",
-                draggable: true,
-                transition: Bounce,
-            });
-        };     
+            className: "success-toast",
+            draggable: true,
+            transition: Bounce,
+        });
+    };     
     
 
     return (
