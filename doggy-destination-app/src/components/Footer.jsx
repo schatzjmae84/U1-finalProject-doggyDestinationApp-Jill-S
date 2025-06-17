@@ -18,14 +18,16 @@ const Footer = () => {
                     </tr>
                     <tr>
                         <td>
-                            <a href="https://doggy-destination.netlify.app/pupPlaces">About</a>
+                            <a href="/pupPlaces">About</a>
                         </td>
                         <td>
                             <a href="https://explorestlouis.com/guide/pet-friendly-st-louis/">Explore St. Louis - Pet Paradise</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>Contact</td>
+                        <td>
+                            <a href ="https://github.com/schatzjmae84">Contact</a>
+                        </td>
                         <td>
                             <a href="https://www.rover.com/">Rover - Loving pet care in your neighborhood</a>
                         </td>
