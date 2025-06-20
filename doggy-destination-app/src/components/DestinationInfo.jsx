@@ -1,4 +1,3 @@
-import { useParams } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,8 +5,6 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 
 
 const DestinationInfo = (props) => {
-
-    const {pupPlaces} = useParams();
 
     // state variable to store the input from the activity portion of the form
     const [ activityInput, setActivityInput ] = useState("");
@@ -74,8 +71,7 @@ const DestinationInfo = (props) => {
 
     return (
 
-        <div>  
-            <h2>{pupPlaces}</h2>      
+        <div>                   
         <div className="form-box">
         <form onSubmit={handleSubmit}>
             <div className="field1">
