@@ -4,7 +4,12 @@ body {
     background-image: url("./assets/pawprintBackground.jpg");
     background-size: cover;
     background-attachment: fixed;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;  
+    height: 100%;  
+}
+
+main {
+    height: 100%;
 }
 
 header {
@@ -45,16 +50,10 @@ main {
     color: rgb(52, 117, 238);    
 }
 
-.appIntro {
+.appIntro, .appIntro2, .appIntro3, .question {
     font-size: large;
     font-weight: bold;
-    text-align: justify;
-}
-
-.question {
-    font-size: large;
-    font-weight: bold;
-    text-align: justify;
+    text-align: center;
 }
 
 h3 {
@@ -120,7 +119,6 @@ h3 {
 
 .flex-container {
     display: flex;
-    background-color: lightblue;
     opacity: 0.90;
     justify-content: center;
     flex-wrap: wrap;
@@ -129,8 +127,9 @@ h3 {
 .flex-container > div {
     margin: 10px;
     padding: 10px;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bolder;
+    color: rgb(3, 3, 110);
 }
 
 input {
@@ -153,7 +152,7 @@ h2 {
 }
 
 footer {
-    padding: 5px;
+    padding: 10px;
     font-weight: bolder;
     font-size: medium;
     background-color: rgb(153, 207, 238);
@@ -161,11 +160,12 @@ footer {
     border-radius: 10px;
     color: blue;
     opacity: 0.80;
+    margin: 10px;       
 }
 
 table, th, td {
     border: 1px solid blue;
-    margin: 0.5vw;
+    margin: 3px;
     font-size: small;
     text-align: center;
 }

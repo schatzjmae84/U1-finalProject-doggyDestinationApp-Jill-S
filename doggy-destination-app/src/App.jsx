@@ -21,9 +21,9 @@ function App() {
             <Route path="/idealInfo" element={<SelectedDestination />} />
             <Route path="/doggyDestinations" element={<InfoPage />} />  
           </Routes>
-        </Router>
-        <Footer />
+        </Router>        
       </main>
+      <Footer />
     </>
   )
 }
